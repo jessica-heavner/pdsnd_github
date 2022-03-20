@@ -18,18 +18,18 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     # get user input for city
-    city = input("Enter a city (chicago, new york city, washington): ").lower()
+    city = ""
     while city not in ['chicago', 'new york city', 'washington']:
         city = input("Enter a city (chicago, new york city, washington): ").lower()
 
     # get user input for month
-    month = input("Enter a month (all, january, february, ... , june): ").lower()
+    month = ""
     while month not in ['all', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september',
                         'november', 'december']:
         month = input("Enter a month (all, january, february, ... , june): ").lower()
 
     # get user input for day of week
-    day = input("Enter a day (all, monday, tuesday, ... sunday): ").lower()
+    day = ""
     while day not in ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']:
         day = input("Enter a day (all, monday, tuesday, ... sunday): ").lower()
 
@@ -91,15 +91,15 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # display the most common month
+    # display the most common month for travel
     popular_month = df['month'].mode()[0]
     print("\nMost popular month: %s" % popular_month)
 
-    # display the most common day of week
+    # display the most common day of week fro travel
     popular_week_day = df['day_of_week'].mode()[0]
     print("\nMost popular day of week: %s" % popular_week_day)
 
-    # display the most common start hour
+    # display the most common start hour fro travel
     df['hour'] = df['Start Time'].dt.hour
     popular_hour = df['hour'].mode()[0]
     print("\nMost popular hour: %s" % popular_hour)
